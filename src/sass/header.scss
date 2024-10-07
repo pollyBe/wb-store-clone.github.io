@@ -1,0 +1,252 @@
+body {
+  position: relative;
+  z-index: 1;
+}
+
+.modal-open {
+  overflow: hidden;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    background: #de83de33;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
+}
+
+header {
+  background-color: #d7c7ec;
+  padding: 0.9375rem 0;
+  border-bottom: 1px solid #cfb9ec;
+  margin-bottom: 0.5rem;
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-wrap {
+  @include header-button-shape;
+  .logo-link {
+    font-size: 1.125rem;
+    color: #000000;
+    font-weight: 400;
+  }
+}
+
+#cart-button {
+  position: relative;
+  z-index: 22;
+  @include header-button-shape;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #000000;
+  cursor: pointer;
+}
+
+.search-field-wrap {
+  position: relative;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 1.25rem;
+
+  .search-button {
+    background-image: url("../img/search.svg");
+    display: block;
+    position: absolute;
+    top: 0.625rem;
+    right: 3.125rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+    width: 1.25rem;
+    height: 1.25rem;
+    z-index: 4;
+    border: none;
+    background-color: white;
+    background-size: cover;
+  }
+
+  .clear-btn {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+    width: 1.25rem;
+    height: 1.25rem;
+    z-index: 5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.625rem;
+      display: block;
+      width: 1.25rem;
+      height: 0.1875rem;
+      background: rgba(103, 98, 98, 0.7);
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0.625rem;
+      display: block;
+      width: 1.25rem;
+      height: 0.1875rem;
+      background: rgba(103, 98, 98, 0.7);
+      transform: rotate(-45deg);
+    }
+  }
+
+  #search-input {
+    box-shadow: inset 0 0 6px black;
+    border-radius: $_20px;
+    padding: $_10px $_18px;
+    font-size: 1.125rem;
+    width: 100%;
+    text-align: start;
+    border: none;
+    z-index: 3;
+  }
+}
+
+.options {
+  z-index: 2;
+  width: 98%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 85%;
+  left: 1%;
+}
+
+.option-item {
+  font-size: 1.125rem;
+  box-shadow: inset 0 0 6px black;
+  background-color: #fff;
+  background: white;
+  list-style: none;
+  box-shadow: 0 0 $_7px rgba(0, 0, 0, 0.16);
+  margin: 0;
+  padding: $_10px $_15px $_10px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 0.5s ease;
+
+  &:last-child {
+    border-bottom-left-radius: $_20px;
+    border-bottom-right-radius: $_20px;
+  }
+}
+
+.no-matches {
+  font-size: 1.125rem;
+  box-shadow: inset 0 0 $_6px black;
+  background-color: #fff;
+  background: white;
+  list-style: none;
+  box-shadow: 0 0 $_7px rgba(0, 0, 0, 0.16);
+  margin: 0;
+  padding: $_15px $_15px $_10px;
+  text-transform: capitalize;
+  transition: 0.5s ease;
+  border-bottom-left-radius: $_20px;
+  border-bottom-right-radius: $_20px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+@media(max-width: 768px) {
+  .modal-open {
+    overflow: auto;
+  }
+
+}
+@media(max-width: 600px) {
+  
+  .search-field-wrap{
+    transition: 0.7s ease;
+    box-shadow: inset 0 0 6px black;
+    width: $_42px;
+    height: $_42px;
+    cursor: pointer;
+
+    .clear-btn {
+      transition: 0.7s ease;
+      display: none;
+    }
+
+    .search-button {
+      transition: 0.7s ease;
+      top: .725rem;
+      right: 0.675rem;
+    }
+ 
+    #search-input {
+      transition: 0.7s ease;
+        display: none;
+   }
+ }
+ .active {
+  transition: all 0.7s ease-in-out;
+
+    width: 50%;
+
+  .clear-btn {
+    display: block;
+  }
+  .search-button {
+    transition: 0.7s ease;
+    top: 0.625rem;
+    right: 3.125rem;
+  }
+  #search-input {
+    transition: 0.7s ease;
+    display: block;
+  }
+ }
+}
+
+@media(max-width: 340px) {
+  .header-wrap {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+ 
+  .search-field-wrap{
+    order: 3;
+  }
+  .active {
+    margin-top: $_5px;
+    order: 3;
+    transition: all 0.3s ease-in-out;
+  
+      width: 100%;
+  
+    .clear-btn {
+      display: block;
+    }
+    .search-button {
+      transition: 0.7s ease;
+      top: 0.625rem;
+      right: 3.125rem;
+    }
+    #search-input {
+      transition: 0.7s ease;
+      display: block;
+    }
+   }
+}

@@ -1,0 +1,33 @@
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+header {
+  background-color: #be95f6;
+  padding: 30px 0;
+}
+
+.header-wrap {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.logo-wrap {
+  background: linear-gradient(0deg, #72489f 0%, #d7acdfe6 100%);
+  border: 1px solid #553365;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  text-decoration: none;
+  list-style: none;
+}
+/*# sourceMappingURL=index.16b7813b.css.map */
