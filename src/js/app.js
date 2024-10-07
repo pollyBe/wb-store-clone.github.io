@@ -1,5 +1,5 @@
-import { header } from "./header/header.js";
-import { sliderContainer } from "./slider/slider.js";
-import { sectionCards } from "./cards/cards.js";
-import { modal } from "./header/header.js";
-import { footer } from "./footer/footer.js";
+import { header } from "../src/js/header/header.js";
+import { sliderContainer } from "../src/js/slider/slider.js";
+import { sectionCards } from "../src/js/cards/cards.js";
+import { modal } from "../src/js/header/header.js";
+import { footer } from "../src/js/footer/footer.js";
